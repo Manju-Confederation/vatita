@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraTracker : MonoBehaviour
 {
-    public GameObject subject;
     public GameObject leftBound;
     public GameObject rightBound;
 
@@ -15,13 +14,19 @@ public class CameraTracker : MonoBehaviour
     {
         Camera camera = GetComponent<Camera>();
         float cameraHalfWidth = camera.orthographicSize * camera.aspect;
-        if (leftBound) leftBoundX = leftBound.transform.position.x + leftBound.transform.localScale.x * 0.5f + cameraHalfWidth;
-        if (rightBound) rightBoundX = rightBound.transform.position.x - rightBound.transform.localScale.x * 0.5f - cameraHalfWidth;
+        if (leftBound)
+        {
+            leftBoundX = leftBound.transform.position.x + leftBound.transform.localScale.x * 0.5f + cameraHalfWidth;
+        }
+        if (rightBound)
+        {
+            rightBoundX = rightBound.transform.position.x - rightBound.transform.localScale.x * 0.5f - cameraHalfWidth;
+        }
     }
 
     void Update()
     {
-        Vector2 subjectPos = subject.transform.position;
+        Vector2 subjectPos = transform.parent.position;
         float targetX = subjectPos.x + 5;
         if (leftBound)
         {

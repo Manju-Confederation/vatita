@@ -6,7 +6,7 @@ public class RhythmController : MonoBehaviour
 {
     public bool rhythmActive = true;
 
-    Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+    readonly Dictionary<string, Sprite> sprites = new();
 
     void Start()
     {
@@ -22,18 +22,28 @@ public class RhythmController : MonoBehaviour
         {
             gameObject.SetActive(rhythmActive);
         }
+        if (rhythmActive)
+        {
+            if (transform.childCount != 0)
+            {
+                GameObject next = transform.GetChild(0).transform.gameObject;
+                if (Input.GetButtonUp(next.name))
+                {
+                    next.GetComponent<ApproachController>().Reflected = true;
+                    next.transform.SetAsLastSibling();
+                }
+            }
+        }
     }
 
     public void Spawn(string id)
     {
-        Sprite sprite;
-        if (sprites.TryGetValue(id, out sprite))
+        if (sprites.TryGetValue(id, out Sprite sprite))
         {
-            GameObject approach = new GameObject("ApproachCircle", typeof(SpriteRenderer), typeof(ApproachController));
+            GameObject approach = new(id, typeof(SpriteRenderer), typeof(ApproachController));
             approach.transform.SetParent(transform);
             approach.transform.localPosition = Vector2.zero;
             approach.GetComponent<SpriteRenderer>().sprite = sprite;
-            Object.Destroy(approach, 1.5f);
         }
         else
         {

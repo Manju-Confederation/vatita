@@ -6,13 +6,19 @@ public class ApproachController : MonoBehaviour
 {
     public float approachSpeed = 0.5f;
 
-    void Start()
-    {
-        
-    }
+    public bool Reflected { get; set; } = false;
 
     void Update()
     {
-        transform.localScale -= (Vector3) Vector2.one * 0.5f * Time.deltaTime;
+        float scaleChange = (Reflected ? 1 : -1) * approachSpeed * Time.deltaTime;
+        transform.localScale += (Vector3) Vector2.one * scaleChange;
+        bool shouldDestroy = Reflected
+            ? transform.localScale.x > 0.7f
+            : transform.localScale.x < 0.2f;
+        if (shouldDestroy)
+        {
+            Object.Destroy(gameObject);
+        }
+        
     }
 }
