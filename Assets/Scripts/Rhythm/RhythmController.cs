@@ -26,11 +26,12 @@ public class RhythmController : MonoBehaviour
         {
             if (transform.childCount != 0)
             {
-                GameObject next = transform.GetChild(0).transform.gameObject;
-                if (Input.GetButtonUp(next.name))
+                Transform next = transform.GetChild(0);
+                ApproachController approach = next.GetComponent<ApproachController>();
+                if (Input.GetButtonUp(next.name) && !approach.Reflected && Util.InBounds(next.localScale.x, 0.2f, 0.5f))
                 {
-                    next.GetComponent<ApproachController>().Reflected = true;
-                    next.transform.SetAsLastSibling();
+                    approach.Reflected = true;
+                    next.SetAsLastSibling();
                 }
             }
         }
@@ -41,9 +42,9 @@ public class RhythmController : MonoBehaviour
         if (sprites.TryGetValue(id, out Sprite sprite))
         {
             GameObject approach = new(id, typeof(SpriteRenderer), typeof(ApproachController));
-            approach.transform.SetParent(transform);
-            approach.transform.localPosition = Vector2.zero;
+            approach.transform.SetParent(transform, false);
             approach.GetComponent<SpriteRenderer>().sprite = sprite;
+            approach.GetComponent<SpriteRenderer>().color = new(1f, 1f, 1f, 0f);
         }
         else
         {

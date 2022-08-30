@@ -909,7 +909,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: jumpVel
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 643085841437092687, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_RootOrder
@@ -960,10 +960,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2145604100413450840, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4423856197743233797, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
