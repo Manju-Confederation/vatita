@@ -6,15 +6,15 @@ public class ApproachController : MonoBehaviour
 {
     public float approachSpeed = 0.5f;
 
-    public bool Reflected { get; set; } = false;
+    public bool Hit { get; set; } = false;
 
     void Update()
     {
-        float scaleChange = (Reflected ? 1.5f : -1f) * approachSpeed * Time.deltaTime;
+        float scaleChange = (Hit ? 1.5f : -1f) * approachSpeed * Time.deltaTime;
         transform.localScale += (Vector3)Vector2.one * scaleChange;
         Color color = GetComponent<SpriteRenderer>().color;
         float before = color.a;
-        if (!Reflected && transform.localScale.x < 0.3f)
+        if (!Hit && transform.localScale.x < 0.3f)
         {
             scaleChange *= -2f;
         }

@@ -28,9 +28,9 @@ public class RhythmController : MonoBehaviour
             {
                 Transform next = transform.GetChild(0);
                 ApproachController approach = next.GetComponent<ApproachController>();
-                if (Input.GetButtonUp(next.name) && !approach.Reflected && next.localScale.x.InBounds(.2f, .5f))
+                if (Input.GetButtonUp(next.name) && !approach.Hit && next.localScale.x.InBounds(.2f, .5f))
                 {
-                    approach.Reflected = true;
+                    approach.Hit = true;
                     next.SetAsLastSibling();
                 }
             }
