@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RhythmController))]
 public class MusicController : MonoBehaviour
 {
     public TextAsset source;
@@ -11,12 +12,12 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         rhythm = GetComponent<RhythmController>();
-        if (rhythm != null && source != null) StartCoroutine(ProcessSource());
+        StartCoroutine(ProcessSource());
     }
 
     IEnumerator ProcessSource()
     {
-        string[] lines = source.text.Split("\n");
+        string[] lines = source != null ? source.text.Split("\n") : new string[0];
         Dictionary<string, int> labels = new();
         for (int i = 0; i < lines.Length; i++)
         {

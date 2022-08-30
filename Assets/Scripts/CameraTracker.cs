@@ -28,13 +28,13 @@ public class CameraTracker : MonoBehaviour
     {
         Vector2 subjectPos = transform.parent.position;
         float targetX = subjectPos.x + 5;
-        if (leftBound)
-        {
-            targetX = Mathf.Max(targetX, leftBoundX);
-        }
         if (rightBound)
         {
             targetX = Mathf.Min(targetX, rightBoundX);
+        }
+        if (leftBound)
+        {
+            targetX = Mathf.Max(targetX, leftBoundX);
         }
         float targetY = subjectPos.y;
         RaycastHit2D groundRaycast = Physics2D.Raycast(subjectPos, Vector2.down, 5f, LayerMask.GetMask("Ground"));

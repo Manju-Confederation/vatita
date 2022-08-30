@@ -18,7 +18,7 @@ public class ApproachController : MonoBehaviour
         {
             scaleChange *= -2f;
         }
-        color.a = Util.ToBounds(color.a - scaleChange * 2f, 0f, 1f);
+        color.a = (color.a - scaleChange * 2f).ToBounds(0f, 1f);
         GetComponent<SpriteRenderer>().color = color;
         if (color.a == 0f)
         {

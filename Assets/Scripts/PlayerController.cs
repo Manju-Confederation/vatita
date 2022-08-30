@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     new Rigidbody2D rigidbody;
 
-    private void Start()
+    void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
