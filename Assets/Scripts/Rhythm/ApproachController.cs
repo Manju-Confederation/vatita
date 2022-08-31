@@ -1,19 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ApproachController : MonoBehaviour
 {
     public float approachSpeed = 0.5f;
 
-    public bool Hit { get; set; } = false;
+    public bool Hit { get; set; }
 
     void Update()
     {
         float scaleChange = (Hit ? 1.5f : -1f) * approachSpeed * Time.deltaTime;
         transform.localScale += (Vector3)Vector2.one * scaleChange;
         Color color = GetComponent<SpriteRenderer>().color;
-        float before = color.a;
         if (!Hit && transform.localScale.x < 0.3f)
         {
             scaleChange *= -2f;
@@ -22,7 +19,7 @@ public class ApproachController : MonoBehaviour
         GetComponent<SpriteRenderer>().color = color;
         if (color.a == 0f)
         {
-            Object.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

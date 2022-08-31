@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(RhythmController))]
 public class MusicController : MonoBehaviour
@@ -15,9 +14,9 @@ public class MusicController : MonoBehaviour
         StartCoroutine(ProcessSource());
     }
 
-    IEnumerator ProcessSource()
+    IEnumerator<YieldInstruction> ProcessSource()
     {
-        string[] lines = source != null ? source.text.Split("\n") : new string[0];
+        string[] lines = source ? source.text.Split("\n") : new string[0];
         Dictionary<string, int> labels = new();
         for (int i = 0; i < lines.Length; i++)
         {

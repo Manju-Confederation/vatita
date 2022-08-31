@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,9 +18,27 @@ public class PlayerController : MonoBehaviour
         vel.x = Input.GetAxis("Move") * speed;
         if (Input.GetButtonDown("Jump") && CanJump())
         {
-            vel.y = jumpVel;
+            vel.y += jumpVel;
         }
         rigidbody.velocity = vel;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        FadeController fade = collision.GetComponent<FadeController>();
+        if (fade)
+        {
+            fade.Hide();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        FadeController fade = collision.GetComponent<FadeController>();
+        if (fade)
+        {
+            fade.Show();
+        }
     }
 
     bool CanJump()
