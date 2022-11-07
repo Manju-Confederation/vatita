@@ -1,16 +1,32 @@
 using UnityEngine;
 
-public class CameraTracker : MonoBehaviour
+public class CameraTracking : MonoBehaviour
 {
     public GameObject leftBound;
     public GameObject rightBound;
 
     float leftBoundX;
     float rightBoundX;
+    new Camera camera;
+
+    public Vector2 Origin
+    {
+        get => new(
+            transform.position.x - camera.orthographicSize * camera.aspect,
+            transform.position.y - camera.orthographicSize
+        );
+    }
+    public Vector2 Size
+    {
+        get => new(
+            camera.orthographicSize * camera.aspect * 2,
+            camera.orthographicSize * 2
+        );
+    }
 
     void Start()
     {
-        Camera camera = GetComponent<Camera>();
+        camera = GetComponent<Camera>();
         float cameraHalfWidth = camera.orthographicSize * camera.aspect;
         if (leftBound)
         {
@@ -20,6 +36,7 @@ public class CameraTracker : MonoBehaviour
         {
             rightBoundX = rightBound.transform.position.x - rightBound.transform.localScale.x * 0.5f - cameraHalfWidth;
         }
+        Update();
     }
 
     void Update()
@@ -40,6 +57,6 @@ public class CameraTracker : MonoBehaviour
         {
             targetY = groundRaycast.point.y + 2;
         }
-        transform.position = new Vector3(targetX, targetY, -10);
+        transform.position = new Vector3(targetX, targetY, -20);
     }
 }
