@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9022598258742568173}
   m_Layer: 3
   m_Name: Player
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 653842702877450737}
   - {fileID: 1937300426172720004}
   - {fileID: 1448410455619096023}
-  - {fileID: 1447819150013092787}
+  - {fileID: 4027321580885693927}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5329095326425374060
+--- !u!1 &7533255763553809825
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,10 +377,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1447819150013092787}
-  - component: {fileID: 8058164038184107046}
-  - component: {fileID: 8894263724014689159}
-  - component: {fileID: 1822210870072350704}
+  - component: {fileID: 4027321580885693927}
+  - component: {fileID: 6084245437335287267}
+  - component: {fileID: 8535589331004157272}
+  - component: {fileID: 9155892110981751231}
+  - component: {fileID: 2983000049690377342}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -388,42 +389,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1447819150013092787
+--- !u!4 &4027321580885693927
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329095326425374060}
+  m_GameObject: {fileID: 7533255763553809825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643085841437092687}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8058164038184107046
+--- !u!114 &6084245437335287267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329095326425374060}
+  m_GameObject: {fileID: 7533255763553809825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d49138d0ed1403f83cf9f1b7e91cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3deba7cc27d104272812bb976f7ac903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftBound: {fileID: 0}
   rightBound: {fileID: 0}
---- !u!20 &8894263724014689159
+--- !u!114 &8535589331004157272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533255763553809825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc2f15fc6a17407db36476434b160c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 0}
+  scale: 1
+  tileMode: 0
+--- !u!20 &9155892110981751231
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329095326425374060}
+  m_GameObject: {fileID: 7533255763553809825}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
@@ -440,8 +456,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0
+  far clip plane: 50
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -460,11 +476,11 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1822210870072350704
+--- !u!81 &2983000049690377342
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329095326425374060}
+  m_GameObject: {fileID: 7533255763553809825}
   m_Enabled: 1
