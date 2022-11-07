@@ -7,7 +7,7 @@ public class RhythmController : MonoBehaviour
 
     readonly Dictionary<string, Sprite> sprites = new();
 
-    void Start()
+    void Awake()
     {
         foreach (Sprite sprite in Resources.LoadAll<Sprite>("Rhythm"))
         {

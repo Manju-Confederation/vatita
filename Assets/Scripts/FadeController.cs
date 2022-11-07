@@ -9,9 +9,13 @@ public class FadeController : MonoBehaviour
 
     bool hide = false;
 
-    void Start()
+    void Awake()
     {
         sprite = GetComponent<SpriteShapeRenderer>();
+    }
+
+    void Start()
+    {
         gameObject.AddComponent<PolygonCollider2D>();
         gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
     }

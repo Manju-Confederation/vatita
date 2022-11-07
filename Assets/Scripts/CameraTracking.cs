@@ -24,9 +24,13 @@ public class CameraTracking : MonoBehaviour
         );
     }
 
-    void Start()
+    void Awake()
     {
         camera = GetComponent<Camera>();
+    }
+
+    void Start()
+    {
         float cameraHalfWidth = camera.orthographicSize * camera.aspect;
         if (leftBound)
         {

@@ -18,10 +18,14 @@ public class BackgroundManager : MonoBehaviour
     Vector3 tileShiftX;
     Vector3 tileShiftY;
 
+    void Awake()
+    {
+        view = GetComponent<CameraTracking>();
+    }
+
     void Start()
     {
         backgroundTiles = new("BackgroundTiles");
-        view = GetComponent<CameraTracking>();
         if (background)
         {
             spriteWidth = background.bounds.size.x * scale;

@@ -8,9 +8,13 @@ public class MusicController : MonoBehaviour
 
     RhythmController rhythm;
 
-    void Start()
+    void Awake()
     {
         rhythm = GetComponent<RhythmController>();
+    }
+
+    void Start()
+    {
         StartCoroutine(ProcessSource());
     }
 
