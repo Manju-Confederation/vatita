@@ -11,4 +11,9 @@ public static class Util
     {
         return val >= min && val <= max;
     }
+
+    public static bool InDelta(this float val, float x, float delta)
+    {
+        return val >= x - delta && val <= x + delta;
+    }
 }
