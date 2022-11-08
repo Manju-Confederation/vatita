@@ -630,22 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8535589331004157272, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: scale
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8535589331004157272, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: tileX
+    - target: {fileID: 4423856197743233797, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8535589331004157272, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: tileY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8535589331004157272, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 21300000, guid: 390e3ef8c9d1f40c2afda3ce6b522815, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
 --- !u!1 &1425125125
