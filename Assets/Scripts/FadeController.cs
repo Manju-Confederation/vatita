@@ -23,7 +23,7 @@ public class FadeController : MonoBehaviour
     void Update()
     {
         Color color = sprite.color;
-        color.a = (color.a + (hide ? -1f : 1.5f) * fade * Time.deltaTime).ToBounds(0f, 1f);
+        color.a = Mathf.Clamp01(color.a + (hide ? -1f : 1.5f) * fade * Time.deltaTime);
         sprite.color = color;
     }
 
