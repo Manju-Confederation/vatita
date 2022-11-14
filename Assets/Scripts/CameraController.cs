@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraTracking : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     public GameObject leftBound;
     public GameObject rightBound;

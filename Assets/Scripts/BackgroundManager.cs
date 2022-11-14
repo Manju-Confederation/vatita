@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(CameraTracking))]
+[RequireComponent(typeof(CameraController))]
 public class BackgroundManager : MonoBehaviour
 {
     public Sprite background;
@@ -10,7 +10,7 @@ public class BackgroundManager : MonoBehaviour
 
     readonly List<List<GameObject>> tiles = new();
     GameObject backgroundTiles;
-    CameraTracking view;
+    CameraController view;
     float spriteWidth;
     float spriteHeight;
     int tileCountX;
@@ -20,7 +20,7 @@ public class BackgroundManager : MonoBehaviour
 
     void Awake()
     {
-        view = GetComponent<CameraTracking>();
+        view = GetComponent<CameraController>();
     }
 
     void Start()
