@@ -14,13 +14,13 @@ public class ApproachController : MonoBehaviour
 
     void Update()
     {
-        if (hit)
+        if (!hit)
         {
-            // TODO: animate out via time
+            // TODO: animate interpolate
         }
         else
         {
-            // TODO: animate interpolate
+            // TODO: animate out via time
         }
     }
 

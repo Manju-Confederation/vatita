@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class RhythmController : MonoBehaviour
 {
-    public bool active = false;
     public TextAsset source;
     public float bpm = 100;
     public float advanceBeats = 4;
@@ -27,17 +26,14 @@ public class RhythmController : MonoBehaviour
     {
         List<string> lines = new(source ? source.text.Split("\n") : new string[0]);
         List<HitData> hits = lines.ConvertAll((line) => HitData.Parse(this, bpm, line));
+        hits.RemoveAll((hit) => hit == null);
         hits.Sort((a, b) => (int) (a.beat - b.beat));
         hitQueue = new(hits);
     }
 
     void Update()
     {
-        if (active != gameObject.activeSelf)
-        {
-            gameObject.SetActive(active);
-        }
-        if (active)
+        if (gameObject.activeSelf)
         {
             if (transform.childCount != 0)
             {
@@ -93,6 +89,7 @@ public class RhythmController : MonoBehaviour
 
         public static HitData Parse(RhythmController controller, float bpm, string text)
         {
+            if (text.StartsWith("#")) return null;
             string[] data = text.Split(" ");
             if (data.Length == 2 && float.TryParse(data[0], out float beat))
             {
