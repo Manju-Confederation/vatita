@@ -10,12 +10,19 @@ public class RhythmController : MonoBehaviour
 
     Queue<HitData> hitQueue;
     readonly Dictionary<string, Sprite> sprites = new();
-
+    FearController fear;
     float advanceTime;
+    float startTime;
+
+    public float CurrentTime
+    {
+        get => (float) AudioSettings.dspTime - startTime;
+    }
 
     void Awake()
     {
-        advanceTime = advanceBeats / bpm * 60;
+        fear = transform.parent.GetComponentInChildren<FearController>();
+        advanceTime = BeatTime(advanceBeats);
         foreach (Sprite sprite in Resources.LoadAll<Sprite>("Rhythm"))
         {
             sprites.Add(sprite.name, sprite);
@@ -29,6 +36,7 @@ public class RhythmController : MonoBehaviour
         hits.RemoveAll((hit) => hit == null);
         hits.Sort((a, b) => (int) (a.beat - b.beat));
         hitQueue = new(hits);
+        startTime = (float) AudioSettings.dspTime;
     }
 
     void Update()
@@ -39,15 +47,10 @@ public class RhythmController : MonoBehaviour
             {
                 Transform next = transform.GetChild(0);
                 ApproachController approach = next.GetComponent<ApproachController>();
-                if (Input.GetButtonDown(approach.hitData.spriteId) && !approach.hit && ((float) AudioSettings.dspTime).InDelta(approach.hitData.time, window) || next.localScale.x.InBounds(.2f, .5f))
-                {
-                    approach.Hit();
-                    next.SetAsLastSibling();
-                }
             }
             if (hitQueue.TryPeek(out HitData hitData))
             {
-                if (hitData.time <= AudioSettings.dspTime + advanceTime)
+                if (hitData.time - advanceTime <= CurrentTime)
                 {
                     Spawn(hitData);
                     hitQueue.Dequeue();
@@ -60,11 +63,23 @@ public class RhythmController : MonoBehaviour
     {
         GameObject approach = new($"Approach{hitData.spriteId}", typeof(SpriteRenderer), typeof(ApproachController));
         approach.transform.SetParent(gameObject.transform);
+        approach.transform.localPosition = Vector3.zero;
         approach.GetComponent<SpriteRenderer>().sprite = hitData.sprite;
         approach.GetComponent<SpriteRenderer>().color = new(1f, 1f, 1f, 0f);
         approach.GetComponent<ApproachController>().controller = this;
         approach.GetComponent<ApproachController>().hitData = hitData;
     }
+
+    public void ProcessHit(HitData hitData, float time)
+    {
+        float delta = hitData.time.Delta(time);
+    }
+
+    public void ProcessMiss(HitData hitData)
+    {
+    }
+
+    public float BeatTime(float beats) => beats * 60 / bpm;
 
     public class HitData
     {
@@ -72,9 +87,14 @@ public class RhythmController : MonoBehaviour
         public readonly string spriteId;
         public readonly float beat;
         public readonly float time;
+        public readonly float showTime;
 
-        HitData(RhythmController controller, float bpm, string spriteId, float beat)
+        HitData(RhythmController controller, string spriteId, float beat)
         {
+            this.spriteId = spriteId;
+            this.beat = beat;
+            this.time = controller.BeatTime(beat);
+            this.showTime = this.time - controller.advanceTime;
             if (controller.sprites.TryGetValue(spriteId, out Sprite sprite))
             {
                 this.sprite = sprite;
@@ -83,17 +103,15 @@ public class RhythmController : MonoBehaviour
             {
                 Debug.LogWarning($"Rhythm Sprite Resource '{spriteId}' not found.");
             }
-            this.beat = beat;
-            this.time = beat / bpm * 60;
         }
 
         public static HitData Parse(RhythmController controller, float bpm, string text)
         {
-            if (text.StartsWith("#")) return null;
+            if (string.IsNullOrWhiteSpace(text) || text.StartsWith("#")) return null;
             string[] data = text.Split(" ");
             if (data.Length == 2 && float.TryParse(data[0], out float beat))
             {
-                return new(controller, bpm, data[1], beat);
+                return new(controller, data[1], beat + controller.advanceBeats);
             }
             else
             {

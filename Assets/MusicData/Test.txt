@@ -1,7 +1,16 @@
-&1
-$label rep
-Ching0
-&1
-Ching1
-&1
-$jump rep
+1 Ching0
+3 Ching1
+5 Ching0
+7 Ching1
+9 Ching0
+11 Ching1
+13 Ching0
+15 Ching1
+17 Ching0
+19 Ching1
+21 Ching0
+23 Ching1
+25 Ching0
+27 Ching1
+29 Ching0
+31 Ching1

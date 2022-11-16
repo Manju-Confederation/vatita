@@ -11,4 +11,9 @@ public static class Util
     {
         return val >= x - delta && val <= x + delta;
     }
+
+    public static float Delta(this float val, float x)
+    {
+        return Mathf.Abs(val - x);
+    }
 }
