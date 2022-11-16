@@ -907,6 +907,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 25536333043849644, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: jumpVel
       value: 8
@@ -959,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2145604100413450840, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6084245437335287267, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: leftBound
       value: 
@@ -967,6 +975,10 @@ PrefabInstance:
       propertyPath: rightBound
       value: 
       objectReference: {fileID: 1995943932}
+    - target: {fileID: 6750797330244255354, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 4900000, guid: 02fc93abfcd9b47bf97ba9304322a5ee, type: 3}
     - target: {fileID: 6750797330244255354, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: rhythmActive
       value: 1
