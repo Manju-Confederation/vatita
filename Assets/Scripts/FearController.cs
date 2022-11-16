@@ -5,8 +5,15 @@ public class FearController : MonoBehaviour
 {
     GameObject fearLevel;
 
-    public float Fear
-    { get; set; }
+    private float _fear;
+
+    float Fear
+    {
+        get => _fear;
+        set {
+            _fear = Mathf.Clamp01(value);
+        }
+    }
 
     void Awake()
     {
@@ -16,5 +23,15 @@ public class FearController : MonoBehaviour
     void Update()
     {
         fearLevel.GetComponent<Image>().fillAmount = Fear;
+    }
+
+    public void Add(float val)
+    {
+        Fear += val / 100;
+    }
+
+    public void Sub(float val)
+    {
+        Add(-val);
     }
 }

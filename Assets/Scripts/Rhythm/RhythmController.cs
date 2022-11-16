@@ -73,10 +73,19 @@ public class RhythmController : MonoBehaviour
     public void ProcessHit(HitData hitData, float time)
     {
         float delta = hitData.time.Delta(time);
+        if (delta > window * 0.6f)
+        {
+            fear.Add(2.5f);
+        }
+        else if (delta > window * 0.2f)
+        {
+            fear.Add(1);
+        }
     }
 
     public void ProcessMiss(HitData hitData)
     {
+        fear.Add(5);
     }
 
     public float BeatTime(float beats) => beats * 60 / bpm;
