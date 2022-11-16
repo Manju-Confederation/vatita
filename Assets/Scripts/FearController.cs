@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class FearController : MonoBehaviour
 {
+    public float rate;
+
     GameObject fearLevel;
 
     private float _fear;
@@ -22,6 +24,7 @@ public class FearController : MonoBehaviour
 
     void Update()
     {
+        Add(rate * Time.deltaTime);
         fearLevel.GetComponent<Image>().fillAmount = Fear;
     }
 
