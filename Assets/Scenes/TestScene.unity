@@ -959,6 +959,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 707409072021025874, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 707409072021025874, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73ab820525e2c46e5bf23df96b3643a8, type: 3}
+    - target: {fileID: 707409072021025874, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707409072021025874, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707409072021025874, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1539006398216727491, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -966,6 +986,14 @@ PrefabInstance:
     - target: {fileID: 2145604100413450840, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344596751742858075, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344596751742858075, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 6084245437335287267, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: leftBound
@@ -983,6 +1011,14 @@ PrefabInstance:
       propertyPath: rhythmActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7530035079679704643, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530035079679704643, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 8006443153060714495, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: source
       value: 
@@ -995,5 +1031,9 @@ PrefabInstance:
       propertyPath: rightBound
       value: 
       objectReference: {fileID: 1995943932}
+    - target: {fileID: 8912422168257561784, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea918c0fd77b7469986edb363eeaae6c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
