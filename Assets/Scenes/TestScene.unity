@@ -915,6 +915,10 @@ PrefabInstance:
       propertyPath: jumpVel
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 469688620683715562, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 4900000, guid: 02fc93abfcd9b47bf97ba9304322a5ee, type: 3}
     - target: {fileID: 643085841437092687, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -963,7 +967,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2145604100413450840, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+    - target: {fileID: 1961474419877190939, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -995,9 +999,5 @@ PrefabInstance:
       propertyPath: rightBound
       value: 
       objectReference: {fileID: 1995943932}
-    - target: {fileID: 8216737473168694007, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
