@@ -912,8 +912,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: scale
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: jumpVel
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469688620683715562, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: source
@@ -963,6 +971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1179355281686255392, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 21c777103ffae409fba5c03bbb7cd2cd, type: 2}
     - target: {fileID: 1539006398216727491, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -971,6 +983,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5939045411781924532, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2059289895, guid: 9bc16823311e9441fa7f8b92fa08b945, type: 3}
     - target: {fileID: 6084245437335287267, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: leftBound
       value: 
