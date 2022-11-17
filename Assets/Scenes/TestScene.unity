@@ -987,14 +987,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4344596751742858075, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 4344596751742858075, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 130
-      objectReference: {fileID: 0}
     - target: {fileID: 6084245437335287267, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: leftBound
       value: 
