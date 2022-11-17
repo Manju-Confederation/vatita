@@ -53,7 +53,7 @@ public class ApproachController : MonoBehaviour
             }
             if (
                 currentTime.InDelta(hitData.time, controller.window)
-                && transform.GetSiblingIndex() == 0
+                && transform.GetSiblingIndex() == 1
                 && Input.GetButtonDown(hitData.spriteId)
             )
             {
