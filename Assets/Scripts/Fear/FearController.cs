@@ -9,7 +9,7 @@ public class FearController : MonoBehaviour
 
     private float _fear;
 
-    float Fear
+    public float Fear
     {
         get => _fear;
         set {
