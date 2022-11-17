@@ -923,6 +923,10 @@ PrefabInstance:
       propertyPath: facingRight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 360349725858707989, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
+      propertyPath: spriteFacingRight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 469688620683715562, guid: 2274b03cd24994000bc8a72b7eccd51a, type: 3}
       propertyPath: source
       value: 
