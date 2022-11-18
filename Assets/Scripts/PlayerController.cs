@@ -4,13 +4,12 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float jumpVel = 5.0f;
-    public float spriteScale = 0.2f;
     public bool spriteFacingRight = true;
 
     new Rigidbody2D rigidbody;
     GameObject sprite;
     Animator animator;
-    bool jumping;
+    float jumpDelay = -1;
 
     void Awake()
     {
@@ -21,7 +20,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        sprite.transform.localScale = new(spriteScale * (spriteFacingRight ? 1 : -1), spriteScale, 1);
+        if (!spriteFacingRight)
+        {
+            FlipSprite();
+        }
     }
 
     void Update()
@@ -29,23 +31,28 @@ public class PlayerController : MonoBehaviour
         Vector2 vel = rigidbody.velocity;
         float move = Input.GetAxis("Move");
         vel.x = move * speed;
-        if (move != 0)
+        if (move != 0 && Mathf.Sign(move) != (spriteFacingRight ? 1 : -1))
         {
-            sprite.transform.localScale = new(spriteScale * (spriteFacingRight ? 1 : -1) * Mathf.Sign(move), spriteScale, 1);
+            FlipSprite();
         }
-        animator.SetBool("Moving", move != 0);
         if (Input.GetButtonDown("Jump") && CanJump())
         {
             vel.y += jumpVel;
-            jumping = true;
-            animator.SetBool("Jumping", true);
+            jumpDelay = 20;
+            animator.SetBool("Airborne", true);
         }
-        else if (jumping && CanJump())
+        else if (jumpDelay == 0 && CanJump())
         {
-            jumping = false;
-            animator.SetBool("Jumping", false);
+            jumpDelay--;
+        }
+        if (jumpDelay > 0 || jumpDelay == 0 && CanJump())
+        {
+            jumpDelay--;
         }
         rigidbody.velocity = vel;
+        animator.SetBool("Moving", move != 0);
+        animator.SetFloat("YVel", vel.y);
+        animator.SetBool("Airborne", jumpDelay != -1);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -74,5 +81,12 @@ public class PlayerController : MonoBehaviour
             transform.localScale.y * 0.6f,
             LayerMask.GetMask("Ground")
         );
+    }
+
+    void FlipSprite()
+    {
+        Vector3 scale = sprite.transform.localScale;
+        sprite.transform.localScale = new(-scale.x, scale.y, 1);
+        spriteFacingRight = !spriteFacingRight;
     }
 }
