@@ -5,13 +5,13 @@ public class FadeController : MonoBehaviour
 {
     public float fade = 1.5f;
 
-    SpriteShapeRenderer sprite;
+    SpriteRenderer sprite;
 
     bool hide = false;
 
     void Awake()
     {
-        sprite = GetComponent<SpriteShapeRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Start()
